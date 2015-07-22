@@ -1,0 +1,47 @@
+{
+  "name": "snazzy",
+  "description": "Snazzy formatter (reporter) for `standard`",
+  "version": "0.0.0",
+  "author": {
+    "name": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "http://feross.org/"
+  },
+  "bin": {
+    "snazzy": "./bin/cmd.js"
+  },
+  "bugs": {
+    "url": "https://github.com/feross/snazzy/issues"
+  },
+  "dependencies": {
+    "chalk": "^1.1.0",
+    "inherits": "^2.0.1",
+    "minimist": "^1.1.1",
+    "text-table": "^0.2.0"
+  },
+  "devDependencies": {
+    "standard": "^4.5.4"
+  },
+  "homepage": "https://github.com/feross/snazzy",
+  "keywords": [
+    "stylish standard",
+    "stylish for standard",
+    "stylish formatter",
+    "snazzy standard",
+    "stylish",
+    "stylish reporter",
+    "standard",
+    "pretty output",
+    "pretty",
+    "standard pretty"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/feross/snazzy.git"
+  },
+  "scripts": {
+    "test": "./bin/cmd.js"
+  }
+}
