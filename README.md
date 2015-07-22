@@ -20,7 +20,7 @@ Compared to before:
 ## install
 
 ```
-npm install snazzy
+npm install -g snazzy
 ```
 
 ## usage
