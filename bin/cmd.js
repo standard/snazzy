@@ -5,6 +5,7 @@ var cp = require('child_process')
 var minimist = require('minimist')
 
 var STANDARD_CMD = require.resolve('standard/bin/cmd')
+if (/^win/.test(process.platform)) STANDARD_CMD += '.cmd'
 
 var argv = minimist(process.argv.slice(2), {
   boolean: [
