@@ -3,8 +3,9 @@
 var CompactToStylishStream = require('../')
 var cp = require('child_process')
 var minimist = require('minimist')
+var path = require('path')
 
-var STANDARD_CMD = require.resolve('standard/bin/cmd')
+var STANDARD_CMD = path.join(require.resolve('standard'), '../../.bin/standard')
 if (/^win/.test(process.platform)) STANDARD_CMD += '.cmd'
 
 var argv = minimist(process.argv.slice(2), {
@@ -12,6 +13,7 @@ var argv = minimist(process.argv.slice(2), {
     'stdin'
   ]
 })
+
 var snazzy = new CompactToStylishStream()
 
 process.on('exit', function (code) {
