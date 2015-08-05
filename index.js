@@ -3,6 +3,7 @@ module.exports = CompactToStylishStream
 var chalk = require('chalk')
 var inherits = require('inherits')
 var stream = require('stream')
+var standardJson = require('standard-json')
 var table = require('text-table')
 
 inherits(CompactToStylishStream, stream.Transform)
@@ -22,36 +23,9 @@ CompactToStylishStream.prototype._transform = function (chunk, encoding, cb) {
 }
 
 CompactToStylishStream.prototype._flush = function (cb) {
-  var lines = Buffer.concat(this._buffer).toString().split('\n')
-  if (lines[lines.length - 1] === '') lines.pop()
-
-  var results = []
-  var resultMap = {}
-
-  lines.forEach(function (line) {
-    var re = /\s*([^:]+):([^:]+):([^:]+): ([^(]*) ?(\((.*)\))?/.exec(line)
-    if (!re) return console.error(line)
-
-    var filePath = re[1]
-
-    var result = resultMap[filePath]
-    if (!result) {
-      result = resultMap[filePath] = {
-        filePath: re[1],
-        messages: []
-      }
-      results.push(result)
-    }
-
-    result.messages.push({
-      line: re[2],
-      column: re[3],
-      message: re[4],
-      ruleId: re[6]
-    })
-  })
-
-  var output = processResults(results)
+  var lines = Buffer.concat(this._buffer).toString()
+  var jsonResults = standardJson(lines, {noisey: true})
+  var output = processResults(jsonResults)
   this.push(output)
 
   this.exitCode = output === '' ? 0 : -1
