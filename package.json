@@ -18,6 +18,7 @@
     "inherits": "^2.0.1",
     "minimist": "^1.1.1",
     "standard": "^4.5.4",
+    "standard-json": "^1.0.0",
     "text-table": "^0.2.0"
   },
   "homepage": "https://github.com/feross/snazzy",
