@@ -7,7 +7,7 @@
 [downloads-image]: https://img.shields.io/npm/dm/snazzy.svg?style=flat
 [downloads-url]: https://npmjs.org/package/snazzy
 
-### Snazzy formatter (reporter) for [`standard`](https://github.com/feross/standard)
+### Format [JavaScript Standard Style](https://github.com/feross/standard) as Stylish (i.e. snazzy) output
 
 Converts "compact" text from a linter to "stylish" (i.e. snazzy) output.
 
