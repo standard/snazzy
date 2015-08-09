@@ -1,7 +1,7 @@
 {
   "name": "snazzy",
   "description": "Format JavaScript Standard Style as Stylish (i.e. snazzy) output",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",
