@@ -1,6 +1,6 @@
 {
   "name": "snazzy",
-  "description": "Snazzy formatter (reporter) for `standard`",
+  "description": "Format JavaScript Standard Style as Stylish (i.e. snazzy) output",
   "version": "2.0.0",
   "author": {
     "name": "Feross Aboukhadijeh",
