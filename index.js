@@ -92,4 +92,3 @@ function processResults (results) {
 
   return total > 0 ? output : ''
 }
-
