@@ -2,7 +2,7 @@ module.exports = CompactToStylishStream
 
 var chalk = require('chalk')
 var inherits = require('inherits')
-var stream = require('stream')
+var stream = require('readable-stream')
 var standardJson = require('standard-json')
 var table = require('text-table')
 
