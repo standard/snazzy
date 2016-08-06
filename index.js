@@ -68,7 +68,7 @@ function processResults (results) {
           message.column || 0,
           messageType,
           message.message.replace(/\.$/, ''),
-          chalk.gray(message.ruleId || '')
+          chalk.dim(message.ruleId || '')
         ]
       }),
       {
@@ -79,7 +79,7 @@ function processResults (results) {
       }
     ).split('\n').map(function (el) {
       return el.replace(/(\d+)\s+(\d+)/, function (m, p1, p2) {
-        return chalk.gray(p1 + ':' + p2)
+        return chalk.dim(p1 + ':' + p2)
       })
     }).join('\n') + '\n\n'
   })
