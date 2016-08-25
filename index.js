@@ -25,10 +25,10 @@ CompactToStylishStream.prototype._transform = function (chunk, encoding, cb) {
 CompactToStylishStream.prototype._flush = function (cb) {
   var lines = Buffer.concat(this._buffer).toString()
   var jsonResults = standardJson(lines, {noisey: true})
-  var output = processResults(jsonResults)
-  this.push(output)
+  var result = processResults(jsonResults)
+  this.push(result.text)
 
-  this.exitCode = output === '' ? 0 : -1
+  this.exitCode = result.total === 0 ? 0 : -1
   cb(null)
 }
 
@@ -88,7 +88,12 @@ function processResults (results) {
     output += chalk.red.bold([
       '\u2716 ', total, pluralize(' problem', total), '\n'
     ].join(''))
+  } else {
+    output = '\n\n' + chalk.green.bold('\u2713') + ' No problems' + '\n\n\n'
   }
 
-  return total > 0 ? output : ''
+  return {
+    text: output,
+    total: total
+  }
 }
