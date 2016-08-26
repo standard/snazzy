@@ -42,6 +42,6 @@
     "url": "git://github.com/feross/snazzy.git"
   },
   "scripts": {
-    "test": "./bin/cmd.js --verbose"
+    "test": "node ./bin/cmd.js --verbose"
   }
 }
