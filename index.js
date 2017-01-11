@@ -28,7 +28,7 @@ CompactToStylishStream.prototype._flush = function (cb) {
   var output = processResults(jsonResults)
   this.push(output)
 
-  this.exitCode = output === '' ? 0 : -1
+  this.exitCode = output === '' ? 0 : 1
   cb(null)
 }
 
