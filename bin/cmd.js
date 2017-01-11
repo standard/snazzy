@@ -16,6 +16,7 @@ var argv = minimist(process.argv.slice(2), {
 
 var snazzy = new CompactToStylishStream()
 
+// Set the process exit code based on whether snazzy found errors.
 process.on('exit', function (code) {
   if (code === 0 && snazzy.exitCode !== 0) {
     process.exit(snazzy.exitCode)
@@ -31,11 +32,14 @@ if (!process.stdin.isTTY || argv._[0] === '-' || argv.stdin) {
   standard.stderr.pipe(process.stderr)
   standard.stdout.pipe(snazzy).pipe(process.stdout)
 
+  // This only runs if snazzy finds no errors AND `standard` exited with a
+  // non-zero code. That means something weird happened, so set exit code to
+  // non-zero.
   var standardCode
   standard.on('exit', function (code) { standardCode = code })
   process.on('exit', function (code) {
     if (code === 0 && standardCode !== 0) {
-      console.error('non-zero exit from the `standard` command')
+      console.error('Unexpected exit from the `standard` command')
       process.exit(standardCode)
     }
   })
