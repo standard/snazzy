@@ -6,7 +6,7 @@ var minimist = require('minimist')
 var path = require('path')
 
 var STANDARD_CMD = path.join(require.resolve('standard'), '../../.bin/standard')
-if (/^win/.test(process.platform)) STANDARD_CMD += '.cmd'
+if (process.platform === 'win32') STANDARD_CMD += '.cmd'
 
 var argv = minimist(process.argv.slice(2), {
   boolean: [
