@@ -1,11 +1,13 @@
-# snazzy [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url]
+# snazzy [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
-[travis-image]: https://img.shields.io/travis/feross/snazzy.svg?style=flat
+[travis-image]: https://img.shields.io/travis/feross/snazzy/master.svg
 [travis-url]: https://travis-ci.org/feross/snazzy
-[npm-image]: https://img.shields.io/npm/v/snazzy.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/snazzy.svg
 [npm-url]: https://npmjs.org/package/snazzy
-[downloads-image]: https://img.shields.io/npm/dm/snazzy.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dm/snazzy.svg
 [downloads-url]: https://npmjs.org/package/snazzy
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
 
 ### Format [JavaScript Standard Style](https://github.com/feross/standard) as Stylish (i.e. snazzy) output
 
