@@ -39,9 +39,9 @@ $ standard --verbose | snazzy
 alongside `snazzy`.
 
 Run `npm install standard --save-dev` to get a copy of `standard`, then run
-`standard | snazzy` where you previously used to ran `snazzy`.
+`standard | snazzy` where you previously used to run `snazzy`.
 
-This method requires more steps but it's better since the user controls the exact
+This way requires more steps, but it's better. The user now controls the exact
 version of `standard` that is used. And for users who were piping into `snazzy` all
 along, this means a quicker install since an extra copy of `standard` will not get
 installed.
