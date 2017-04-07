@@ -18,22 +18,24 @@
     "inherits": "^2.0.1",
     "minimist": "^1.1.1",
     "readable-stream": "^2.0.6",
-    "standard": "*",
     "standard-json": "^1.0.0",
     "text-table": "^0.2.0"
   },
+  "devDependencies": {
+    "standard": "*"
+  },
   "homepage": "https://github.com/feross/snazzy",
   "keywords": [
-    "stylish standard",
+    "pretty",
+    "pretty output",
+    "snazzy standard",
+    "standard",
+    "standard pretty",
+    "stylish",
     "stylish for standard",
     "stylish formatter",
-    "snazzy standard",
-    "stylish",
     "stylish reporter",
-    "standard",
-    "pretty output",
-    "pretty",
-    "standard pretty"
+    "stylish standard"
   ],
   "license": "MIT",
   "main": "index.js",
@@ -42,6 +44,6 @@
     "url": "git://github.com/feross/snazzy.git"
   },
   "scripts": {
-    "test": "./bin/cmd.js --verbose"
+    "test": "standard --verbose | ./bin/cmd.js"
   }
 }

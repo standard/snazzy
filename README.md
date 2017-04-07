@@ -33,17 +33,18 @@ Pipe "compact" text into the `snazzy` command to get back pretty results:
 $ standard --verbose | snazzy
 ```
 
-Or, just run `snazzy` directly and it will run `standard` and give you pretty results:
+## note about version 7.0.0
 
-```bash
-$ snazzy
-```
+`standard` is no longer bundled with snazzy. You must install `standard` manually
+alongside `snazzy`.
 
-`snazzy` supports all command line flags that `standard` supports:
+Run `npm install standard --save-dev` to get a copy of `standard`, then run
+`standard | snazzy` where you previously used to ran `snazzy`.
 
-```bash
-$ snazzy --format --verbose test1.js test2.js
-```
+This method requires more steps but it's better since the user controls the exact
+version of `standard` that is used. And for users who were piping into `snazzy` all
+along, this means a quicker install since an extra copy of `standard` will not get
+installed.
 
 ## license
 
