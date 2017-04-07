@@ -12,14 +12,13 @@ var argv = minimist(process.argv.slice(2), {
 if (!process.stdin.isTTY || argv._[0] === '-' || argv.stdin) {
   var snazzy = new CompactToStylishStream()
 
-  // Set the process exit code based on whether snazzy found errors.
+  // Set the process exit code based on whether snazzy found errors
   process.on('exit', function (code) {
     if (code === 0 && snazzy.exitCode !== 0) {
-      process.exit(snazzy.exitCode)
+      process.exitCode = snazzy.exitCode
     }
   })
 
-  process.stdout.on('error', function () {})
   process.stdin.pipe(snazzy).pipe(process.stdout)
 } else {
   console.error(`

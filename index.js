@@ -14,6 +14,7 @@ function CompactToStylishStream (opts) {
   }
   stream.Transform.call(this, opts)
 
+  this.exitCode = 0
   this._buffer = []
 }
 
