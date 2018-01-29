@@ -14,7 +14,7 @@
     "url": "https://github.com/feross/snazzy/issues"
   },
   "dependencies": {
-    "chalk": "^1.1.0",
+    "chalk": "^2.3.0",
     "inherits": "^2.0.1",
     "minimist": "^1.1.1",
     "readable-stream": "^2.0.6",
