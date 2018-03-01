@@ -2,8 +2,9 @@ module.exports = CompactToStylishStream
 
 var chalk = require('chalk')
 var inherits = require('inherits')
-var stream = require('readable-stream')
 var standardJson = require('standard-json')
+var stream = require('readable-stream')
+var stripAnsi = require('strip-ansi')
 var table = require('text-table')
 
 inherits(CompactToStylishStream, stream.Transform)
@@ -75,7 +76,7 @@ function processResults (results) {
       {
         align: ['', 'r', 'l'],
         stringLength: function (str) {
-          return chalk.stripColor(str).length
+          return stripAnsi(str).length
         }
       }
     ).split('\n').map(function (el) {
