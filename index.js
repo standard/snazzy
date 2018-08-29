@@ -26,7 +26,7 @@ CompactToStylishStream.prototype._transform = function (chunk, encoding, cb) {
 
 CompactToStylishStream.prototype._flush = function (cb) {
   var lines = Buffer.concat(this._buffer).toString()
-  var jsonResults = standardJson(lines, {noisey: true})
+  var jsonResults = standardJson(lines, { noisey: true })
   var output = processResults(jsonResults)
   this.push(output)
 
