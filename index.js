@@ -90,7 +90,7 @@ function processResults (results) {
     output += chalk.red.bold([
       '\u2716 ', total, pluralize(' problem', total), '\n'
     ].join(''))
+    return output
   }
-
-  return total > 0 ? output : ''
+  return ''
 }
