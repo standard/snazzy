@@ -19,7 +19,7 @@
     "minimist": "^1.1.1",
     "readable-stream": "^3.0.2",
     "standard-json": "^1.0.0",
-    "strip-ansi": "^5.0.0",
+    "strip-ansi": "^6.0.0",
     "text-table": "^0.2.0"
   },
   "devDependencies": {
