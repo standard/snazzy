@@ -1,3 +1,4 @@
+/*! snazzy. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 const chalk = require('chalk')
 const standardJson = require('standard-json')
 const stream = require('readable-stream')
