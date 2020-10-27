@@ -1,37 +1,31 @@
-module.exports = CompactToStylishStream
+const chalk = require('chalk')
+const standardJson = require('standard-json')
+const stream = require('readable-stream')
+const stripAnsi = require('strip-ansi')
+const table = require('text-table')
 
-var chalk = require('chalk')
-var inherits = require('inherits')
-var standardJson = require('standard-json')
-var stream = require('readable-stream')
-var stripAnsi = require('strip-ansi')
-var table = require('text-table')
+class CompactToStylishStream extends stream.Transform {
+  constructor (opts) {
+    super(opts)
 
-inherits(CompactToStylishStream, stream.Transform)
-
-function CompactToStylishStream (opts) {
-  if (!(this instanceof CompactToStylishStream)) {
-    return new CompactToStylishStream(opts)
+    this.exitCode = 0
+    this._buffer = []
   }
-  stream.Transform.call(this, opts)
 
-  this.exitCode = 0
-  this._buffer = []
-}
+  _transform (chunk, encoding, cb) {
+    this._buffer.push(chunk)
+    cb(null)
+  }
 
-CompactToStylishStream.prototype._transform = function (chunk, encoding, cb) {
-  this._buffer.push(chunk)
-  cb(null)
-}
+  _flush (cb) {
+    const lines = Buffer.concat(this._buffer).toString()
+    const jsonResults = standardJson(lines, { noisey: true })
+    const output = processResults(jsonResults)
+    this.push(output)
 
-CompactToStylishStream.prototype._flush = function (cb) {
-  var lines = Buffer.concat(this._buffer).toString()
-  var jsonResults = standardJson(lines, { noisey: true })
-  var output = processResults(jsonResults)
-  this.push(output)
-
-  this.exitCode = output === '' ? 0 : 1
-  cb(null)
+    this.exitCode = output === '' ? 0 : 1
+    cb(null)
+  }
 }
 
 /**
@@ -45,11 +39,11 @@ function pluralize (word, count) {
 }
 
 function processResults (results) {
-  var output = '\n'
-  var total = 0
+  let output = '\n'
+  let total = 0
 
   results.forEach(function (result) {
-    var messages = result.messages
+    const messages = result.messages
 
     if (messages.length === 0) {
       return
@@ -60,9 +54,7 @@ function processResults (results) {
 
     output += table(
       messages.map(function (message) {
-        var messageType
-
-        messageType = chalk.red('error')
+        const messageType = chalk.red('error')
 
         return [
           '',
@@ -94,3 +86,5 @@ function processResults (results) {
 
   return total > 0 ? output : ''
 }
+
+module.exports = CompactToStylishStream
