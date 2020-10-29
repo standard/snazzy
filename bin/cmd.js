@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-var CompactToStylishStream = require('../')
-var minimist = require('minimist')
+const CompactToStylishStream = require('../')
+const minimist = require('minimist')
 
-var argv = minimist(process.argv.slice(2), {
+const argv = minimist(process.argv.slice(2), {
   boolean: [
     'stdin'
   ]
 })
 
 if (!process.stdin.isTTY || argv._[0] === '-' || argv.stdin) {
-  var snazzy = new CompactToStylishStream()
+  const snazzy = new CompactToStylishStream()
 
   // Set the process exit code based on whether snazzy found errors
   process.on('exit', function (code) {
