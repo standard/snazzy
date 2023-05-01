@@ -55,7 +55,7 @@ function processResults (results) {
 
     output += table(
       messages.map(function (message) {
-        const messageType = chalk.red('error')
+        const messageType = message.type === 'warning' ? chalk.yellow('warning') : chalk.red('error')
 
         return [
           '',
